@@ -1,0 +1,51 @@
+{
+  "name": "logo",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Minimal setup to get React working in Vite with Tailwind, Leaflet, and GitHub Pages deployment.",
+  "homepage": "https://bishal299.github.io/NagarSaarthi/",
+  "main": "src/main.jsx",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
+  },
+  "dependencies": {
+    "framer-motion": "^12.23.22",
+    "leaflet": "^1.9.4",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-icons": "^5.5.0",
+    "react-leaflet": "^4.2.1",
+    "react-router-dom": "^7.9.1"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.33.0",
+    "@types/react": "^18.2.7",
+    "@types/react-dom": "^18.2.4",
+    "@vitejs/plugin-react": "^5.0.0",
+    "autoprefixer": "^10.4.21",
+    "eslint": "^9.33.0",
+    "eslint-plugin-react-hooks": "^5.2.0",
+    "eslint-plugin-react-refresh": "^0.4.20",
+    "gh-pages": "^6.3.0",
+    "postcss": "^8.5.6",
+    "tailwindcss": "^3.4.15",
+    "vite": "^7.1.5"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Bishal299/NagarSaarthi.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Bishal299/NagarSaarthi/issues"
+  },
+  "license": "ISC",
+  "keywords": [],
+  "author": ""
+}

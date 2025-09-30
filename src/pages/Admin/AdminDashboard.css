@@ -1,0 +1,821 @@
+html, body, #root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+
+
+.issues-map {
+  height: 400px;
+  width: 100%;
+  margin-bottom: 30px;
+}
+/* ensure the leaflet container fills its parent */
+.leaflet-container {
+  height: 100%;
+  width: 100%;
+}
+
+/* make table rows clickable for pan/zoom */
+.issues-table .table-row {
+  cursor: pointer;
+}
+
+
+
+/* tryend */
+.admin-dashboard {
+ 
+  display: flex;
+  min-height: 100vh;
+  width: 100vw; /* Add this */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #f5f6fa;
+  
+}
+
+/* Sidebar Styles */
+.sidebar {
+  width: 280px;
+  background: linear-gradient(135deg, #2563eb 0%, #10b981 100%);
+  color: white;
+  padding: 0;
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+
+  /* remove fixed */
+  position: relative;   /* default, so it scrolls with the page */
+  height: auto;         /* let height depend on content */
+}
+
+
+.sidebar-header {
+  padding: 25px 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+
+.logo-icon {
+  font-size: 28px;
+}
+
+.logo-text {
+  font-size: 22px;
+  font-weight: bold;
+  color: white;
+}
+
+.admin-badge {
+  background: #e74c3c;
+  color: white;
+  padding: 4px 12px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 600;
+  display: inline-block;
+}
+
+.sidebar-nav {
+  padding: 20px 0;
+}
+
+.nav-item {
+  width: 100%;
+  background: none;
+  border: none;
+  color: #bdc3c7;
+  padding: 15px 25px;
+  text-align: left;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 16px;
+  transition: all 0.3s ease;
+  border-left: 3px solid transparent;
+}
+
+.nav-item:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+}
+
+.nav-item.active {
+  background: rgba(255, 255, 255, 0.15);
+  color: white;
+  border-left-color: #3498db;
+}
+
+.nav-icon {
+  font-size: 18px;
+  width: 20px;
+}
+
+/* Main Content Styles */
+.main-content {
+  flex: 1;
+  padding: 30px;
+  background-color: #f9fafb;
+}
+
+.top-header {
+  background: white;
+  padding: 20px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  border-bottom: 1px solid #ecf0f1;
+}
+
+.page-title {
+  font-size: 28px;
+  color: #2c3e50;
+  margin: 0;
+  font-weight: 700;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.notification-bell {
+  position: relative;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 50%;
+  background: #f8f9fa;
+  transition: background 0.3s ease;
+}
+
+.notification-bell:hover {
+  background: #e9ecef;
+}
+
+.bell-icon {
+  font-size: 20px;
+}
+
+.notification-count {
+  position: absolute;
+  top: -2px;
+  right: -2px;
+  background: #e74c3c;
+  color: white;
+  border-radius: 50%;
+  width: 18px;
+  height: 18px;
+  font-size: 11px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+}
+
+.admin-profile {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 12px;
+  background: #f8f9fa;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.admin-profile:hover {
+  background: #e9ecef;
+}
+
+.admin-avatar {
+  font-size: 20px;
+}
+
+.admin-name {
+  font-weight: 600;
+  color: #2c3e50;
+}
+
+/* Overview Content */
+.overview-content {
+  padding: 30px;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 25px;
+  margin-bottom: 40px;
+}
+
+.stat-card {
+  background: white;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  border-left: 4px solid;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.stat-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+.stat-card.total { border-left-color: #3498db; }
+.stat-card.pending { border-left-color: #f39c12; }
+.stat-card.progress { border-left-color: #9b59b6; }
+.stat-card.resolved { border-left-color: #27ae60; }
+.stat-card.users { border-left-color: #e74c3c; }
+.stat-card.active-users { border-left-color: #1abc9c; }
+
+.stat-icon {
+  font-size: 40px;
+  opacity: 0.8;
+}
+
+.stat-info h3 {
+  margin: 0 0 8px 0;
+  color: #7f8c8d;
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.stat-number {
+  font-size: 32px;
+  font-weight: 700;
+  color: #2c3e50;
+  margin: 0;
+}
+
+.recent-activity {
+  background: white;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.recent-activity h3 {
+  margin: 0 0 20px 0;
+  color: #2c3e50;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.activity-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.activity-item {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 15px;
+  background: #f8f9fa;
+  border-radius: 8px;
+}
+
+.activity-icon {
+  font-size: 18px;
+  width: 20px;
+  text-align: center;
+}
+
+.activity-text {
+  flex: 1;
+  color: #2c3e50;
+}
+
+.activity-time {
+  color: #7f8c8d;
+  font-size: 12px;
+}
+
+/* Content Sections */
+.issues-content,
+.users-content,
+.reports-content,
+.settings-content {
+  padding: 30px;
+}
+
+.content-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.filters {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+
+.filter-select {
+  padding: 10px 15px;
+  border: 2px solid #ecf0f1;
+  border-radius: 8px;
+  font-size: 14px;
+  background: white;
+  cursor: pointer;
+  color: black;
+}
+
+.filter-select:focus {
+  border-color: #3498db;
+  outline: none;
+}
+
+.search-input {
+  padding: 10px 15px;
+  border: 2px solid #ecf0f1;
+  border-radius: 8px;
+  font-size: 14px;
+  min-width: 250px;
+  background-color: #dbecee;
+}
+
+.search-input:focus {
+  border-color: #3498db;
+  outline: none;
+}
+
+.add-btn {
+  background: #27ae60;
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.add-btn:hover {
+  background: #229954;
+}
+
+/* Tables */
+.issues-table,
+.users-table {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+}
+
+.table-header {
+  display: grid;
+  background: #f8f9fa;
+  padding: 20px;
+  font-weight: 700;
+  color: #2c3e50;
+  border-bottom: 1px solid #ecf0f1;
+}
+
+.issues-table .table-header {
+  grid-template-columns: 120px 1fr 100px 120px 150px 120px;
+}
+
+.users-table .table-header {
+  grid-template-columns: 200px 200px 100px 120px 120px 100px 120px;
+}
+
+.header-cell {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.table-row {
+  display: grid;
+  padding: 20px;
+  border-bottom: 1px solid #ecf0f1;
+  align-items: center;
+  transition: background 0.3s ease;
+}
+
+.table-row:hover {
+  background: #f8f9fa;
+}
+
+.issues-table .table-row {
+  grid-template-columns: 120px 1fr 100px 120px 150px 120px;
+}
+
+.users-table .table-row {
+  grid-template-columns: 200px 200px 100px 120px 120px 100px 120px;
+}
+
+.table-cell {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.issue-id {
+  font-weight: 600;
+  color: #3498db;
+  text-decoration: none;
+}
+
+.votes {
+  font-size: 12px;
+  color: #e67e22;
+  background: #fdf2e9;
+  padding: 2px 6px;
+  border-radius: 10px;
+}
+
+.issue-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-left: 210px;
+}
+
+.issue-type {
+  font-weight: 600;
+  color: #2c3e50;
+}
+
+.issue-location {
+  font-size: 12px;
+  color: #7f8c8d;
+}
+
+.priority-badge {
+  padding: 4px 12px;
+  border-radius: 12px;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.priority-high {
+  background: #ffeaa7;
+  color: #d63031;
+}
+
+.priority-medium {
+  background: #fab1a0;
+  color: #e17055;
+}
+
+.priority-low {
+  background: #a7f3d0;
+  color: #047857;
+}
+
+.status-select {
+  padding: 6px 12px;
+  border: 2px solid;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 600;
+  cursor: pointer;
+  text-transform: uppercase;
+}
+
+.status-select.status-pending {
+  border-color: #f39c12;
+  color: #f39c12;
+  background: #fef9e7;
+}
+
+.status-select.status-progress {
+  border-color: #3498db;
+  color: #3498db;
+  background: #ebf8ff;
+}
+
+.status-select.status-resolved {
+  border-color: #27ae60;
+  color: #27ae60;
+  background: #f0fff4;
+}
+
+.assigned-to {
+  font-size: 12px;
+  color: #7f8c8d;
+  margin-left: 35px;
+}
+
+.action-btn {
+  background: none;
+  border: none;
+  padding: 8px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  font-size: 14px;
+}
+
+.action-btn:hover {
+  background: #ecf0f1;
+}
+
+.action-btn.delete:hover {
+  background: #fadbd8;
+}
+
+/* User Management Specific */
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.user-avatar {
+  font-size: 20px;
+}
+
+.user-name {
+  font-weight: 600;
+  color: #2c3e50;
+}
+
+.role-badge {
+  background: #3498db;
+  color: white;
+  padding: 4px 12px;
+  border-radius: 12px;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.issues-count {
+  background: #e74c3c;
+  color: white;
+  padding: 4px 8px;
+  border-radius: 50%;
+  font-size: 12px;
+  font-weight: 600;
+  min-width: 24px;
+  text-align: center;
+}
+
+.user-status.active {
+  color: #27ae60;
+  font-weight: 600;
+}
+
+.user-status.inactive {
+  color: #e74c3c;
+  font-weight: 600;
+}
+
+/* Reports Section */
+.reports-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 25px;
+}
+
+.report-card {
+  background: white;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.report-card:hover {
+  transform: translateY(-5px);
+}
+
+.report-card h3 {
+  margin: 0 0 15px 0;
+  color: #2c3e50;
+  font-size: 18px;
+}
+
+.report-card p {
+  color: #7f8c8d;
+  margin: 0 0 20px 0;
+  line-height: 1.5;
+}
+
+.generate-btn {
+  background: #3498db;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.generate-btn:hover {
+  background: #2980b9;
+}
+
+/* Settings Section */
+.settings-sections {
+  display: grid;
+  gap: 30px;
+  margin-bottom: 30px;
+}
+
+.settings-section {
+  background: white;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.settings-section h3 {
+  margin: 0 0 20px 0;
+  color: #2c3e50;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.setting-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 0;
+  border-bottom: 1px solid #ecf0f1;
+}
+
+.setting-item:last-child {
+  border-bottom: none;
+}
+
+.setting-item label {
+  color: #2c3e50;
+  font-weight: 500;
+}
+
+.setting-item input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
+
+.setting-item input[type="number"] {
+  padding: 8px 12px;
+  border: 2px solid #ecf0f1;
+  border-radius: 6px;
+  width: 80px;
+}
+
+.save-settings-btn {
+  background: #27ae60;
+  color: white;
+  border: none;
+  padding: 15px 30px;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.save-settings-btn:hover {
+  background: #229954;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .sidebar {
+    width: 250px;
+  }
+
+  .main-content {
+    margin-left: 250px;
+  }
+
+  .stats-grid {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .sidebar {
+    width: 200px;
+  }
+
+  .main-content {
+    margin-left: 200px;
+  }
+
+  .top-header {
+    padding: 15px 20px;
+  }
+
+  .page-title {
+    font-size: 22px;
+  }
+
+  .content-header {
+    flex-direction: column;
+    gap: 15px;
+    align-items: stretch;
+  }
+
+  .filters {
+    flex-wrap: wrap;
+  }
+
+  .search-input {
+    min-width: auto;
+    width: 100%;
+  }
+
+  .issues-table .table-header,
+  .issues-table .table-row {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .users-table .table-header,
+  .users-table .table-row {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .table-row {
+    padding: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .sidebar {
+    width: 60px;
+  }
+
+  .main-content {
+    margin-left: 0px;
+  }
+
+  .logo-text,
+  .admin-badge,
+  .nav-item span:not(.nav-icon) {
+    display: none;
+  }
+
+  .nav-item {
+    justify-content: center;
+    padding: 15px 10px;
+  }
+
+  .overview-content,
+  .issues-content,
+  .users-content,
+  .reports-content,
+  .settings-content {
+    padding: 15px;
+  }
+
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+}
+/* Add this at the end of the file or near other user-related styles */
+
+.user-email {
+  color: #2980b9;
+  font-size: 15px;
+  font-weight: 500;
+  word-break: break-all;
+  background: #ecf6fc;
+  padding: 4px 10px;
+  border-radius: 8px;
+  max-width: 180px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.user-date {
+  color: #2980b9;
+    
+}
+
+.type-location{
+  margin-left: 210px;
+}
