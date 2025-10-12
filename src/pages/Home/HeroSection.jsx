@@ -28,7 +28,7 @@ export function HeroSection() {
           Innovate. Solve. Sustain.
         </h1>
         <p className="text-xl md:text-2xl font-light mb-12 text-white drop-shadow-lg">
-          Fuel **Atmanirbhar Bharat** by identifying local challenges in **Waste, Water, and Sanitation.** Your report starts the **Swadeshi** solution.
+          Fuel <strong>Atmanirbhar Bharat</strong> by identifying local challenges in <strong>Waste, Water, and Sanitation.</strong> Your report starts the <strong>Swadeshi</strong> solution.
         </p>
         <button
           onClick={handleReportIssue}
