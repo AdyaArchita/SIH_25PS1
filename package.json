@@ -1,10 +1,10 @@
 {
-  "name": "logo",
+  "name": "sih_25ps1",
   "version": "0.0.0",
   "private": true,
   "type": "module",
   "description": "Minimal setup to get React working in Vite with Tailwind, Leaflet, and GitHub Pages deployment.",
-  "homepage": "https://bishal299.github.io/NagarSaarthi/",
+  "homepage": "https://adyaarchita.github.io/NagarSaarthi/",
   "main": "src/main.jsx",
   "scripts": {
     "dev": "vite",
@@ -40,10 +40,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Bishal299/NagarSaarthi.git"
+    "url": "git+https://github.com/AdyaArchita/NagarSaarthi.git"
   },
   "bugs": {
-    "url": "https://github.com/Bishal299/NagarSaarthi/issues"
+    "url": "https://github.com/AdyaArchita/NagarSaarthi/issues"
   },
   "license": "ISC",
   "keywords": [],

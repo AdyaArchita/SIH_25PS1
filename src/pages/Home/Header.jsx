@@ -7,7 +7,7 @@ export function Header() {
       {/* Left Section: Logo + Title */}
       <div className="flex items-center gap-3 sm:gap-4">
         <img
-          src="/NagarSaarthi/NagarSaarthi icon.png"
+          src="NagarSaarthi/NagarSaarthi_icon.png"
           alt="NagarSaarthi Logo"
           className="h-16 w-16 sm:h-24 sm:w-24 rounded-full object-cover"
         />
