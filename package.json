@@ -1,6 +1,6 @@
 {
-  "name": "sih_25ps1",
-  "version": "0.0.0",
+  "name": "NagarSaarthi",
+  "version": "1.0.0",
   "private": true,
   "type": "module",
   "description": "Minimal setup to get React working in Vite with Tailwind, Leaflet, and GitHub Pages deployment.",
